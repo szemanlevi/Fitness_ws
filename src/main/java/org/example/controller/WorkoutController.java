@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.dao.WorkoutDAO;
+import org.example.model.Difficulty;
 import org.example.model.Workout;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,15 +50,10 @@ public class WorkoutController {
 //        workoutDAO.addWorkout(new Workout(name, duration, Difficulty.valueOf(difficulty.toUpperCase())));
 //    }
 
-//    @PostMapping("/")
-//    public void postWorkout(@RequestBody Workout workout) {
-//        //        { "name": "Songoku workout", "duration": 30, "difficulty": "Advanced" }
-//
-//        workoutDAO.addWorkout(workout);
-//    }
 
     @PostMapping("/")
     public void postWorkout(@RequestBody Workout workout) {
+        //        { "name": "Songoku workout", "duration": 30, "difficulty": "Advanced" }
         workoutDAO.addWorkout(workout);
     }
 
