@@ -17,7 +17,7 @@ public class WorkoutRowMapper implements RowMapper<Workout> {
         workout.setId(rs.getInt("id"));
         workout.setName(rs.getString("name"));
         workout.setDuration(rs.getInt("duration"));
-        workout.setDifficulty((Difficulty) rs.getObject("difficulty"));
+        workout.setDifficulty(Difficulty.valueOf(rs.getString("difficulty").toUpperCase()));
         return workout;
     }
 }

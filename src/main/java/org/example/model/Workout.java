@@ -12,4 +12,16 @@ public class Workout {
     private String name;
     private int duration;
     private Difficulty difficulty;
+
+    public Workout(String name, int duration, Difficulty difficulty) {
+        this.name = name;
+        this.duration = duration;
+        this.difficulty = difficulty;
+    }
+
+    public Workout(String name, int duration, String difficulty) {
+        this.name = name;
+        this.duration = duration;
+        this.difficulty = Difficulty.valueOf(difficulty.toUpperCase());
+    }
 }

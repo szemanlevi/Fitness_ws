@@ -32,7 +32,7 @@ public class WorkoutDAOJdbc implements WorkoutDAO {
                 VALUES
                 (?, ?, ?)
                 """;
-        int log = jdbcTemplate.update(sql, workout.getName(), workout.getDuration(), workout.getDifficulty());
+        int log = jdbcTemplate.update(sql, workout.getName(), workout.getDuration(), workout.getDifficulty().toString().toUpperCase());
         if (log == 1) {
             logger.info("new workout added");
         } else {
@@ -100,6 +100,7 @@ public class WorkoutDAOJdbc implements WorkoutDAO {
         } catch (DataAccessException e) {
             logger.warn("workouts not found");
         } catch (Exception e) {
+            e.printStackTrace();
             logger.warn("unexpected error occured");
         }
         return workouts;
