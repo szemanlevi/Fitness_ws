@@ -49,10 +49,16 @@ public class WorkoutController {
 //        workoutDAO.addWorkout(new Workout(name, duration, Difficulty.valueOf(difficulty.toUpperCase())));
 //    }
 
+//    @PostMapping("/")
+//    public void postWorkout(@RequestBody Workout workout) {
+//        //        { "name": "Songoku workout", "duration": 30, "difficulty": "Advanced" }
+//
+//        workoutDAO.addWorkout(workout);
+//    }
+
     @PostMapping("/")
     public void postWorkout(@RequestBody Workout workout) {
-        //        { "name": "Songoku workout", "duration": 30, "difficulty": "Advanced" }
-
         workoutDAO.addWorkout(workout);
     }
+
 }
