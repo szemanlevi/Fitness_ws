@@ -17,7 +17,7 @@ public class ExerciseRowMapper implements RowMapper<Exercise> {
         exercise.setId(rs.getInt("id"));
         exercise.setName(rs.getString("name"));
         exercise.setCaloriesBurned(rs.getInt("calories_burned"));
-        exercise.setMuscleGroup((MuscleGroup) rs.getObject("muscle_group"));
+        exercise.setMuscleGroup(MuscleGroup.valueOf(rs.getString("muscle_group").toUpperCase().replace(" ","")));
         return exercise;
     }
 }

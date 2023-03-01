@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +28,7 @@ public class WorkoutDAOJdbc implements WorkoutDAO {
         final String sql = """
                 INSERT INTO
                 workout (name, duration, difficulty)
-                VALUES
-                (?, ?, ?)
+                VALUES (?, ?, ?)
                 """;
         int log = jdbcTemplate.update(sql, workout.getName(), workout.getDuration(), workout.getDifficulty().toString().toUpperCase());
         if (log == 1) {
@@ -63,7 +61,6 @@ public class WorkoutDAOJdbc implements WorkoutDAO {
         Workout workout = new Workout();
         try {
             workout = jdbcTemplate.queryForObject(sql, new Object[]{id}, workoutRowMapper);
-
         } catch (DataAccessException e) {
             logger.warn("id not found");
         } catch (Exception e) {

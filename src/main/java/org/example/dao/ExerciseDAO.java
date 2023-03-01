@@ -1,7 +1,6 @@
 package org.example.dao;
 
 import org.example.model.Exercise;
-import org.example.model.Workout;
 
 import java.util.List;
 
