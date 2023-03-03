@@ -12,16 +12,19 @@ public class Exercise {
     private String name;
     private int caloriesBurned;
     private MuscleGroup muscleGroup;
+    private int workoutId;
 
-    public Exercise(String name, int caloriesBurned, MuscleGroup muscleGroup) {
+    public Exercise(String name, int caloriesBurned, MuscleGroup muscleGroup, int workoutId) {
         this.name = name;
         this.caloriesBurned = caloriesBurned;
         this.muscleGroup = muscleGroup;
+        this.workoutId = workoutId;
     }
 
-    public Exercise(String name, int caloriesBurned, String muscleGroup) {
+    public Exercise(String name, int caloriesBurned, String muscleGroup, int workoutId) {
         this.name = name;
         this.caloriesBurned = caloriesBurned;
         this.muscleGroup = MuscleGroup.valueOf(muscleGroup.toUpperCase().replace(" ",""));
+        this.workoutId = workoutId;
     }
 }

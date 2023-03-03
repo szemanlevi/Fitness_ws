@@ -27,10 +27,14 @@ public class ExerciseDAOJdbc implements ExerciseDAO {
     public void addExercise(Exercise exercise) {
         final String sql = """
                 INSERT INTO exercise 
-                (name, calories_burned, muscle_group)
-                VALUES (?, ?, ?)
+                (name, calories_burned, muscle_group, workout_id)
+                VALUES (?, ?, ?, ?)
                 """;
-        int log = jdbcTemplate.update(sql, exercise.getName(), exercise.getCaloriesBurned(), exercise.getMuscleGroup().toString().toUpperCase().replace(" ",""));
+        int log = jdbcTemplate.update(sql,
+                exercise.getName(),
+                exercise.getCaloriesBurned(),
+                exercise.getMuscleGroup().toString().toUpperCase().replace(" ",""),
+                exercise.getWorkoutId());
         if (log == 1) {
             logger.info("new exercise added");
         } else {
@@ -75,10 +79,16 @@ public class ExerciseDAOJdbc implements ExerciseDAO {
                 UPDATE exercise
                 SET name = ?,
                 calroies_burned = ?,
-                muscle_group = ?
+                muscle_group = ?,
+                workout_id = ?
                 WHERE id = ?
                 """;
-        int log = jdbcTemplate.update(sql, exercise.getName(), exercise.getCaloriesBurned(), exercise.getMuscleGroup(), id);
+        int log = jdbcTemplate.update(sql,
+                exercise.getName(),
+                exercise.getCaloriesBurned(),
+                exercise.getMuscleGroup(),
+                exercise.getWorkoutId(),
+                id);
         if (log == 1) {
             logger.info("exercise with id = {} updated", id);
         } else {
